@@ -11,5 +11,5 @@ export const getToken = () => {
         const token = "Bearer " + JSON.parse(userAccessToken);
         return token;
 }
-export const serverDomain = "http://localhost:4000";
-export const server=`${serverDomain}/api/s1`;
+export const serverDomain = `${process.env.REACT_APP_BACKEND_URL}`;
+export const server=`${process.env.REACT_APP_BACKEND_URL}/api/s1`;
