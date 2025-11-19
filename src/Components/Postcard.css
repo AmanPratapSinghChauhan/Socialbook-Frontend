@@ -1,0 +1,58 @@
+.p-c-container{
+    display: flex;
+    justify-content: center;
+
+}
+.p-c-box{
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgb(203, 203, 214);
+}
+.pc-item{
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.pc-item i{
+    color:black;
+    font-size: 30px;
+    height: 40px;
+    padding-bottom: 5px;
+}
+.pc-item span{
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+.pc-item .created{
+    font-size: 12px;
+    color:gray;
+}
+.p-c-pic{
+    padding-top:5px ;
+    border-radius: 25px;
+    width:50px;
+    height: 50px;
+}
+.p-c-img{
+   width: 45vw;
+   height: 300px;
+}
+.material-symbols-outlined{
+  font-variation-settings:'FILL' 1,
+}
+.like-button{
+    cursor: pointer;
+}
+.like-count{
+    font-size: 13px;
+    padding-bottom: 5px;
+}
+.like-button i{
+    padding: 0px 10px;
+    padding-top: 5px;
+    color:rgb(174, 169, 169);
+}
