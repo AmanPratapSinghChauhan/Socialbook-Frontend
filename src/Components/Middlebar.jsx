@@ -6,11 +6,12 @@ import { getAllPostsAPI } from '../ServerAPI';
 const Middlebar = () => {
 
   const [pics, setPics] = useState([]);
+  const [pageIds, setPageIds] = useState([]);
   const [page, setPage] = useState(0);
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
   const middleRef = useRef(null);
-  const firstRender = useRef(true);
+  // const firstRender = useRef(true);
 
   const fetchPosts = async () => {
     if (!hasMore) return; // prevent duplicate calls
@@ -19,8 +20,13 @@ const Middlebar = () => {
     const res = await getAllPostsAPI(2, page);
     const data = res.data;
     if (data.status) {
+      data.post.forEach(element => {
+        if(!pageIds.includes(element._id)){
+            setPics((prev) => [...prev, element]);
+            setPageIds((prev) => [...prev, element._id]);
+        }
+      });
 
-      setPics((prev) => [...prev, ...data.post]);
       if (data.post.length == 2) {
         setHasMore(true);
         setLoading(false);
@@ -30,10 +36,10 @@ const Middlebar = () => {
 
   // First load
   useEffect(() => {
-    if (firstRender.current) {
-    firstRender.current = false;
-    return; // skip on first render
-  }
+  //   if (firstRender.current) {
+  //   firstRender.current = false;
+  //   return; // skip on first render
+  // }
       fetchPosts();
   }, [page]);
 
